@@ -1,0 +1,79 @@
+body {
+  background-color: black;
+}
+
+.container {
+  display: grid;
+  /* justify-content: center;
+  align-items: center; */
+  place-items: center;
+  height: 100vh;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+.loading {
+  height: 100px;
+  width: 100px;
+  border: 10px solid aqua;
+  border-radius: 10px;
+  box-shadow:
+    0 0 20px aqua,
+    0 0 20px aqua inset;
+  z-index: 10;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-name: loading;
+  animation-iteration-count: infinite;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotateX(0) rotateY(0) rotateZ(0);
+  }
+
+  33% {
+    transform: rotateX(180deg) rotateY(0) rotateZ(0);
+  }
+
+  67% {
+    transform: rotateX(180deg) rotateY(180deg) rotateZ(0);
+  }
+
+  100% {
+    transform: rotateX(180deg) rotateY(180deg) rotateZ(180deg);
+  }
+}
+
+.loading:hover {
+  scale: 150%;
+}
+
+.loading-bar {
+  height: 50px;
+  width: 500px;
+  border: 5px green solid;
+  padding: 10px;
+  position: relative;
+  border-radius: 20px;
+}
+
+.inside-box {
+  width: 100%;
+  height: 100%;
+  background-color: green;
+  position: relative;
+  border-radius: 10px;
+  animation-name: loadingbar;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes loadingbar {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}

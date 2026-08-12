@@ -1,0 +1,33 @@
+<%- include('partial/header.ejs') %>
+
+<h1 style="font-family: 'Ubuntu', sans-serif; margin-left: 3%;">Make a blog post</h1>
+<form action="/create-post" method="POST">
+    <div class="create-box">
+        <div class="title-box">
+            <!-- <label for="title">Title:</label><br> -->
+            <input type="text" id="title" name="title" placeholder="Enter blog title" required class="title-input"> 
+        </div>
+        <div class="content-box">
+            <!-- <label for="content">Content:</label><br> -->
+            <textarea id="content" name="content" rows="8" cols="80" placeholder="Write your post content here..." required class="content-input"></textarea>
+        </div> 
+    <button type="submit" class="btn-publish">Publish Post</button>
+    </div>
+</form>
+
+<% if (posts.length > 0) { %>
+    <% posts.forEach( blog => { %>
+    <div class="post-card">
+        <h2 class="post-title"> <%= blog.postTitle %> </h2>
+        <p class="date-info"> Created on: <%= blog.createDate %> </p>
+        <p class="post-content"> <%= blog.postContent %> </p>
+        <a href="/edit/<%= blog.id %>" class="btn-edit">Edit Post</a>
+        <a href="/view/<%= blog.id %>" class="btn-view">View Full Post</a>
+        <br>
+    </div>
+    <% }) %>
+<% } %>
+
+
+
+<%- include('partial/footer.ejs') %>

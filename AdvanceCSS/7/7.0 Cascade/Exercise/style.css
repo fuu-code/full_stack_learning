@@ -1,0 +1,36 @@
+/* Don't change the existing CSS. */
+
+.box {
+  background-color: blue;
+  padding: 10px;
+}
+
+p {
+  color: yellow;
+  margin: 0;
+  padding: 0;
+}
+
+/*  DONT CHANGE ON THE TOP CODE */
+
+#outer-box {
+  border: 10px solid purple;
+}
+
+.inner-box {
+  background-color: red;
+}
+
+.box p {
+  font-weight: bolder;
+  color: gold;
+}
+
+.inner-box p {
+  font-weight: normal;
+  color: white;
+}
+
+.white-text {
+  color: white;
+}

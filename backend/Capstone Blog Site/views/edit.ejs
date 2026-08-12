@@ -1,0 +1,27 @@
+<%- include('partial/header.ejs') %>
+
+<h1 style="font-family: 'Ubuntu', sans-serif;">Edit blog post</h1><br>
+
+    <form action="/edit/<%= blog.id %>" method="POST">
+        
+        <div class="title-box">
+            <!-- <label for="title">Title:</label><br> -->
+            <input type="text" id="title" name="title" value="<%= blog.postTitle %>" required class="title-input"> 
+        </div>
+        <div class="content-box">
+            <!-- <label for="content">Content:</label><br> -->
+            <textarea id="content" name="content" rows="8" cols="50" required class="content-input"><%= blog.postContent %></textarea>
+        </div>
+<div class="edit-box">
+        <button type="submit" class=" btn-save btn-item">Save Changes</button>
+        <a href="/" class="btn-cancel btn-item">Cancel</a>
+
+    </form>
+
+    <form action="/delete/<%= blog.id %>" method="POST">
+        <button type="submit" class="btn-delete btn-item" 
+        onclick="return confirm('Are you sure you want to permanently delete this post?');">Delete Post</button>
+    </form>
+
+</div>
+<%- include('partial/footer.ejs') %>

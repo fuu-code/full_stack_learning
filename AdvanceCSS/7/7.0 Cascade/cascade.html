@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <style>
+    li {
+      color: green;
+      color: pink;
+      /* The blue will show since it is the next position of code */
+    }
+
+    .priority-li {
+      color: burlywood;
+    }
+
+    li[draggable] {
+      color: whitesmoke;
+    }
+
+    #prio {
+      color: gold;
+    }
+
+    .box {
+      background-color: gray;
+      border: 10px solid black;
+      padding: 20px;
+      width: 400px;
+    }
+
+    .internal-li {
+      color: aquamarine;
+    }
+
+    .box-two {
+      border: 10px solid lightcoral;
+      width: 400px;
+      padding: 20px;
+      background-color: burlywood;
+    }
+
+    .important-li {
+      color: wheat;
+      color: brown !important;
+    }
+  </style>
+
+  <body>
+    <div class="box">
+      <h1>THE HEIRARCHY OF CASCADING: Specificity</h1>
+      <ol>
+        <li id="prio">ID is the first priority in order</li>
+        <li draggable="True">Attribute is the 2nd priority in order</li>
+        <li class="priority-li">Class is the 3rd priority in order</li>
+        <li>Element is the last priority in order</li>
+      </ol>
+    </div>
+    <div class="box-two">
+      <h1>THE HEIRARCHY OF CASCADING: Type</h1>
+      <ol>
+        <li class="importance" style="color: aliceblue">Inline</li>
+        <li class="internal-li">Internal</li>
+        <li class="external-li">External</li>
+        <li class="important-li">This is set to have important color</li>
+      </ol>
+    </div>
+  </body>
+</html>

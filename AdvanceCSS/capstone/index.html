@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abel&family=Cause:wght@100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* +++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+      body {
+        padding: 0;
+        margin: 0;
+      }
+      .bg {
+        width: 100%;
+        height: 600px;
+        margin: 0px;
+        background-color: rgb(63, 99, 99);
+      }
+      .name {
+        color: white;
+        font-size: 100px;
+        font-family: "Ubuntu", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        text-align: center;
+        padding-top: 15%;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+        border: 0px;
+      }
+      .des {
+        color: white;
+        font-size: 30px;
+        font-family: "Ubuntu", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        text-align: center;
+      }
+
+      h1 {
+        padding: 0px;
+        margin: 0;
+      }
+
+      /* +++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+      .about-me {
+        display: grid;
+        justify-content: center;
+        gap: 1px;
+        grid-template-rows: 1fr auto auto;
+        grid-template-columns: 60%;
+        place-items: center;
+      }
+
+      .my-image {
+        background-color: bisque;
+        height: 200px;
+        width: 200px;
+        margin-top: 200px;
+        border-radius: 50%;
+        border: 10px rgb(63, 99, 99) solid;
+      }
+      .about-me > h2 {
+        font-family: "Ubuntu", sans-serif;
+        font-weight: 700;
+        font-size: 50px;
+        font-style: normal;
+        text-align: center;
+        color: rgb(63, 99, 99);
+      }
+      .about-me > p {
+        font-family: "Ubuntu", sans-serif;
+        font-weight: 700;
+        font-size: 20px;
+
+        font-style: normal;
+        text-align: justify;
+        color: rgb(63, 99, 99);
+        padding-bottom: 200px;
+      }
+
+      /* +++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+      .cards-container {
+        display: grid;
+        gap: 50px;
+        justify-content: center;
+        grid-template-columns: auto auto auto;
+        place-items: center;
+        margin-bottom: 150px;
+      }
+
+      @media (max-width: 1000px) {
+        .cards-container {
+          grid-template-columns: 1fr;
+        }
+      }
+      .title {
+        font-family: "Ubuntu", sans-serif;
+        font-weight: 700;
+        font-size: 50px;
+        font-style: normal;
+        text-align: center;
+        color: rgb(63, 99, 99);
+        border: 0;
+        padding: 0;
+        margin: 0;
+      }
+
+      .card {
+        background-color: bisque;
+        border: 5px rgb(63, 99, 99) solid;
+        border-radius: 20px;
+        padding: 20px;
+        height: 150px;
+        width: 300px;
+        margin-top: 70px;
+      }
+      .card > p {
+        text-align: justify;
+        font-family: "Ubuntu", sans-serif;
+        font-weight: bold;
+        color: rgb(44, 85, 85);
+      }
+      .card > h3 {
+        text-align: justify;
+        font-family: "Ubuntu", sans-serif;
+        font-weight: bolder;
+        font-size: xx-large;
+        text-align: center;
+        margin: 8px;
+        color: rgb(44, 85, 85);
+      }
+      /* +++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+      .background-footer {
+        background-color: rgb(44, 85, 85);
+        height: 200px;
+      }
+      .websites {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(3, max-content);
+        justify-content: center;
+        padding-top: 50px;
+      }
+
+      .websites > a:hover {
+        color: white;
+      }
+
+      .background-footer > p {
+        display: grid;
+        grid-template-columns: 1fr;
+        place-items: center;
+        color: white;
+        font-size: 14px;
+        padding-top: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 1ST SECTION / INTRODUCTION-->
+    <div class="background">
+      <div class="bg" styl>
+        <h1 class="name">Hi, I'm Billy</h1>
+        <h2 class="des">I'm dreaming to become a web developer...</h2>
+      </div>
+    </div>
+    <!-- 2ND SECTION / ABOUT ME-->
+    <div class="about-me">
+      <div class="my-image"></div>
+      <h2>Billy H****</h2>
+      <p>
+        About me is that i like technology above all and im really passionate in
+        creating and learning, and all about this curiosity that it pulled me
+        into developing my programming skills and willingness to learn about
+        tech.
+      </p>
+    </div>
+
+    <!-- 3RD SECTION / SKILLS-->
+    <div class="skills">
+      <h3 class="title">My Skills</h3>
+      <div class="cards-container">
+        <div class="card python">
+          <h3>Python</h3>
+          <p>
+            This is my first language ever and do to its easy use i feel like
+            can work with this language.
+          </p>
+        </div>
+        <div class="card html">
+          <h3>HTML</h3>
+          <p>
+            I lied, This is my first language but i don't undestand it when
+            using back in highschool, but now i know why this is important to
+            learn
+          </p>
+        </div>
+        <div class="card css">
+          <h3>CSS</h3>
+          <p>
+            Its like editing using AE or Davinci and i get to design my website
+            however I like.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- 4TH SECTION / FOOTER -->
+    <div class="footer">
+      <div class="background-footer">
+        <div class="websites">
+          <a href="youtube.com">Facebook</a>
+          <a href="youtube.com">Twitter</a>
+          <a href="youtube.com">Youtube</a>
+        </div>
+        <p>@BillyCoding</p>
+      </div>
+    </div>
+  </body>
+</html>

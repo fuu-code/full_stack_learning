@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .container {
+        display: flex;
+        gap: 10px;
+      }
+      .container > div {
+        /* HIERARCHY OF THE ITEMS WIDTH / SPACING */
+
+        /* width: 100px; */
+        /* max-width: 100px; */
+        /* min-width: 300px; */
+
+        flex-basis: 0;
+        flex-grow: 1;
+        flex-shrink: 1;
+      }
+
+      .boxes1 {
+        display: flex;
+        gap: 10px;
+      }
+
+      .boxes1 > .red {
+        flex: 1;
+      }
+
+      .boxes1 > .green {
+        /* twice the width of red */
+        flex: 2;
+      }
+
+      .boxes1 > .blue {
+        /* twice the width of green */
+        flex: 3;
+      }
+
+      .boxes2 {
+        justify-content: space-between;
+        display: flex;
+        gap: 10px;
+      }
+
+      .boxes2 > .red {
+        flex-basis: 200px;
+      }
+      .boxes2 > .green {
+        flex-basis: 200px;
+        flex-shrink: 0;
+      }
+
+      .boxes2 > .blue {
+        flex-basis: 400px;
+        flex-shrink: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div>Home</div>
+      <div>About</div>
+      <div>Contact Us</div>
+      <div>The Best Programming School in the World</div>
+    </div>
+    <br />
+    <div class="boxes1">
+      <div class="red" style="background-color: red; height: 100px"></div>
+      <div class="green" style="background-color: green; height: 100px"></div>
+      <div class="blue" style="background-color: blue; height: 100px"></div>
+    </div>
+    <br />
+    <div class="boxes2">
+      <div
+        class="red"
+        style="
+          background-color: red;
+          height: 100px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-weight: bolder;
+          font-size: 20px;
+        "
+      >
+        HELLO WORLD
+      </div>
+      <div
+        class="green"
+        style="
+          background-color: green;
+          height: 100px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-weight: bolder;
+          font-size: 20px;
+        "
+      >
+        HELLO WORLD
+      </div>
+      <div
+        class="blue"
+        style="
+          background-color: blue;
+          height: 100px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-weight: bolder;
+          font-size: 20px;
+        "
+      >
+        HELLO WORLD
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,305 @@
+.post-card {
+    width: 100%;
+    height: 220px;
+    max-width: 800px;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 50px 20px 50px 20px;
+    position: relative; 
+}
+
+.post-card::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 110px; /* Adjust this to control how high the fade reaches */
+    
+    /* Fades from solid white (matching your background) to transparent */
+    background: linear-gradient(to top, #ffffff 50%, transparent); 
+    
+    /* Ensures users can still highlight or click text underneath the fade */
+    pointer-events: none; 
+    /* Ensures the gradient curves with your card's border radius */
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    z-index: 1
+}
+
+.post-title {
+    margin: 0 0 10px 0;
+    font-size: 1.5rem;
+    color: #262a2e;
+    text-decoration: none;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.post-content {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #4a5568;
+    white-space: pre-wrap;
+    text-indent: 2em;
+    text-align: justify;
+}
+
+.date-info {
+    font-size: 12px;
+    position: absolute;
+    bottom: 10px;      
+    right: 15px;        
+    font-size: 12px;
+    color: #666;
+    z-index: 2;
+    padding-right: 10px;
+}
+
+.btn-edit {
+    color: #46729e;
+    font-size: 12px;
+    position: absolute; 
+    z-index: 2;
+    bottom: 23px;             
+    right: 200px;
+}
+
+.btn-view {
+    color: #46729e;
+    font-size: 12px;
+    position: absolute; 
+    z-index: 2;
+    bottom: 23px;             
+    left: 30px;
+}
+
+.create-box{
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 50px 20px 50px 20px;
+    position: relative; 
+}
+
+.title-box {
+    height: 30px;
+    display: flex ;
+    justify-content: center;
+    margin: 2%;
+    
+}
+.title-input {
+    border: none;
+    border-bottom: 2px solid #3890a0;
+    outline: none;
+    text-align: center;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+
+.content-box{
+    display: flex ;
+    justify-content: center;
+    text-align: center;
+}
+.content-input{
+    border-color: #3890a0;;
+    text-align: center;
+}
+
+.title-input::placeholder,
+.content-input::placeholder {
+    text-align: center;
+  
+}
+
+body {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    min-height: 100vh;
+    margin: 0;
+}
+
+.btn-publish {
+    width: 20%;
+    align-self: center;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    margin: 2%;
+    background-color: #5dc97c;
+    color: #ffffff;           
+    border: none;
+    border-radius: 6px;
+    padding: 10px 16px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.btn-publish:hover {
+    background-color: #098a2d;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+.btn-publish:active {
+    background-color: #10311a;
+    transform: scale(0.96) translateY(1px); 
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.btn-cancel {
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    justify-content: center; 
+    align-items: center;
+    display: flex;
+    margin: 2%;
+    background-color: #d2db7c;
+    color: #ffffff;           
+    border: none;
+    border-radius: 6px;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Calibri', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.btn-cancel:hover {
+    background-color: #adab3b;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+.btn-cancel:active {
+    background-color: #45490e;
+    transform: scale(0.96) translateY(1px); 
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.btn-save {
+    width: 100%;
+    align-self: center;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    margin: 2%;
+    background-color: #5dc97c;
+    color: #ffffff;           
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.btn-save:hover {
+    background-color: #098a2d;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+.btn-save:active {
+    background-color: #10311a;
+    transform: scale(0.96) translateY(1px); 
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.btn-delete {
+    width: 100%;
+    height: 100%;
+    background-color: #dc2626; 
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.1s ease, background-color 0.2s ease, box-shadow 0.1s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.btn-delete:hover {
+    background-color: #b91c1c;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+.btn-delete:active {
+    background-color: #991b1b;
+    transform: scale(0.96) translateY(1px); 
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+
+.edit-box {
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    gap: 50px;
+    margin-top: 20px;
+    
+}
+.btn-item {
+    text-align: center;
+    justify-content: center; 
+    align-items: center;
+    align-self: center;
+}
+.view-box {
+    width: 100%;
+    height: 100%;
+    max-width: 800px;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 50px 20px 30px 20px;
+    position: relative; 
+}
+
+.btn-return {
+    width: 10%;
+    height: 100%;
+    text-decoration: none;
+    justify-content: center; 
+    align-items: center;
+    display: flex;
+    margin: 2%;
+    background-color: #d2db7c;
+    color: #ffffff;           
+    border: none;
+    padding:5px;
+    border-radius: 6px;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Calibri', sans-serif;
+    cursor: pointer;
+    margin-left: 3%;
+    transition: background-color 0.2s ease;
+}
+.btn-return:hover {
+    background-color: #adab3b;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+.btn-return:active {
+    background-color: #45490e;
+    transform: scale(0.96) translateY(1px); 
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
