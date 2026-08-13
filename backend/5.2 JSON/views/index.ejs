@@ -17,10 +17,7 @@
   <div id="recipeContainer" class="hidden">
 
     <!-- If no recipe yet, show: -->
-
-    
-    <h2>Pick your favourite taco ingredient 👆</h2>
-    
+    <% if (locals.tacoData) { %>
     <!-- Else, show the recipe name e.g. <h2>Recipe name</h2>-->
     <h2><%= tacoData.proteinName %> Taco</h2>
     <h3>Ingredients:</h3>
@@ -33,7 +30,9 @@
       <li style="list-style-type: none; color: black"><%= data.quantity %> of <%= data.name %></li>
     </ul>
     <% }); %>
-  
+  <% } else { %>
+      <h2>Pick your favourite taco ingredient 👆</h2>
+    <% } %>
   </div>
 </body>
 
