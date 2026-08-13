@@ -1,0 +1,100 @@
+# #--------------- TERMINAL LINES WINDOWS OS
+DEFAULT > TERMINAL GOTO (View > Command Pallete > Select Default Terminal)
+
+cd                                      go to default path
+cd ~                                    go to default path
+pwd                                     current path
+ls                                      list of the items
+cd ..                                   go back previous path 
+cd {folder name}                        go in that directory
+dir                                     list of file in directory
+start {filename}                        open the file
+rmdir {folder name}                     delete folder
+rm -r {folder name}                     delete folder
+rm {filename}                           delete file
+rm *                                    delete all files in the directory
+mkdir {folder name}                     create folder
+echo. > {filename + type like main.py}  create a file
+
+#     add \ when have space or special characters eg.
+#     /g/My Drive/CODING/CODING/CODES/ADVANCE_PYTHON_day58+/day_70_git&version_control/Story
+#     /g/My\ Drive/CODING/CODING/CODES/ADVANCE_PYTHON_day58\+/day_70_git\&version_control/Story
+
+cd /g/My\ Drive/CODING/CODING/CODES/ADVANCE_PYTHON_day58\+/day_70_git\&version_control/Story
+
+
+netstat -ano | findstr "LISTENING"                 to see which server is running
+
+
+---------------- GIT TERMINAL CODE
+
+git init            # initiate a git control
+git config --global user.email "bookeryarn@gmail.com"
+git config --global user.name "Fuutarou"
+git config --global init.defaultBranch main
+
+git status          # status of files if is git
+
+git add {file name} or git add .                # add files to git staging area 
+git rm --cached -r .                            # removed all file in staging area      
+git restore --staged filename.py                # remove specific file in the staging area
+git commit -m "{message}"                       # commit changes
+git log                                         # check the committed logs
+git checkout                                    # backtrack from the previous version
+git diff {file name}                            # to see the difference from old version to new version
+git remote add origin {https://github.com/fuu-code/Story.git}       #link to the repository
+git branch -M main                              # rename the current branch to "main"
+git push -u origin main                         # upload files to github to the link
+
+
+------------------- BRANCHES -------------------
+
+git branch {name of other branch}               # create a branch name
+git branch                                      # to show the branches
+git branch {new-branch} {source-branch}         # create branch and move to that branch
+git checkout {branch name}                      # to move to the branch
+        # before merging go to {main} branch
+git merge {branch name}    and type   :q!    to save and quit
+git push --set-upstream origin {branch-name}    # to push branch to github
+git push -u origin {branch-name}                # to push branch to github
+
+
+------------------- AFTER PUSHING THE ORIGIN MAIN TO GIT HUB 
+these are  the only thing we can do:
+
+        git add .
+        git commit -m "update"
+        git push
+
+------------------- THE PROCESS
+
+git init    >>>     git add     >>>     git commit      >>>     git push
+git clone {url}
+
+------------------- FIX ISSUES
+        Another git process seems {run this line}
+        rm -f .git/index.lock
+
+        when using git log its stuck with END press q on the terminal
+
+        # when you want to undo git init
+        rm -rf .git             
+
+        # removing ghost folder 
+        git rm --cached <file-name>
+        git commit -m "remove broken folder link"
+        git push
+
+
+
+git reset <commit-hash>        # go back to previous version without loosing the codes written and removing record of commit
+git reset --soft <commit-hash> 
+git reset --hard <commit-hash> 
+
+git revert <commit-hash>        # go back to previous version without loosing the track records or commit
+
+-----------
+
+
+
+
