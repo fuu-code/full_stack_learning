@@ -70,6 +70,7 @@ these are  the only thing we can do:
 
 git init    >>>     git add     >>>     git commit      >>>     git push
 git clone {url}
+git status     {check new files}
 
 ------------------- FIX ISSUES
         Another git process seems {run this line}
