@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlockChain API</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <main>
+        <h1>Crypto Tickers (Sorted by Price: High to Low)</h1>
+        
+        <% if (tickers && tickers.length > 0) { %>
+          <table>
+            <thead>
+              <tr>
+                <th>Symbol</th>
+                <th>Current Price</th>
+                <th>24h Volume</th>
+              </tr>
+            </thead>
+              <tbody>
+                <% tickers.forEach(ticker => { %>
+                <tr>
+                  <td><strong><%= ticker.symbol %></strong></td>
+                  <td>$<%= ticker.last_trade_price.toLocaleString() %></td>
+                  <td><%= ticker.volume_24h %></td>
+                </tr>
+                <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+          <p>No ticker data available right now. Please try again later.</p>
+        <% } %>
+    
+    </main>
+
+</body>
+</html>

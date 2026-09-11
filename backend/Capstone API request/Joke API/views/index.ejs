@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joke Reveal Cards</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <main class="page-container">
+    <!-- Card Wrapper -->
+    <div class="cards-container">
+      <!-- Left Card: Setup -->
+      <div class="card">
+        <span class="card-label">Joke Setup</span>
+        <p class="card-content"><%= jokeSetup %></p>
+      </div>
+
+      <!-- Right Card: Punchline (Covered) -->
+      <div class="card" id="punchlineCard">
+        <span class="card-label punchline-label">Punchline</span>
+        <p class="card-content"><%= jokePunchline %></p>
+
+        <!-- Covered Overlay -->
+        <div class="card-cover" onclick="this.parentElement.classList.add('reveal-card')">
+          <span class="cover-icon">🔒</span>
+          <span class="cover-text">Click to Reveal</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Centered Bottom Button -->
+    <div class="button-wrapper">
+      <a href="/" class="btn-new-joke">New Joke</a>
+    </div>
+  </main>
+
+</body>
+</html>
