@@ -15,7 +15,7 @@ const config = {
     headers: { "X-API-Token": token}, 
 }
 
-
+// Getting API from blockchain
 app.get("/", async (req, res) => {
     try {
         const result = await axios.get(API_URL + "/tickers", config);
