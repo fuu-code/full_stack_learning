@@ -23,8 +23,10 @@ app.get("/jokes/:id", (req, res) => {
     return res.status(404).json({
     error: `No joke found for id '${id}'.`
     });  
-  }
+  };
+  const jokeIndex = jokes.findIndex((j) => j.id === id)
   res.json(foundJoke);
+  console.log(`GET Specific Joke ${JSON.stringify(jokes[jokeIndex])}`)
 });
 
 //3. GET a jokes by filtering on the joke type
@@ -32,7 +34,6 @@ app.get("/jokes/:id", (req, res) => {
 app.get("/filter", (req, res) => {
   const typeRequest = (req.query.type);
   const foundType = jokes.filter((typeData) => typeData.jokeType.toLowerCase() == typeRequest.toLowerCase());
-
   if (foundType.length === 0) {
     return res.status(404).json({
       error: `No joke found matching type '${typeRequest}'.`
@@ -49,15 +50,14 @@ app.post("/jokes", (req, res) => {
       error: "Fill all the required information 'text' and 'type'."
     });
   };
-
   const newJoke = {
     id: jokes.length + 1, 
     jokeText: req.body.text,
     jokeType: req.body.type,
   };
-
   jokes.push(newJoke);
-  console.log(jokes.slice(-1));
+  // console.log(jokes.slice(-1))
+  console.log(`New Joke ${JSON.stringify(jokes.slice(-1))}`);
   res.json(newJoke);
 });
 
@@ -66,28 +66,47 @@ app.post("/jokes", (req, res) => {
 
 app.put("/jokes/:id", (req, res) => {
   const previousId = parseInt(req.params.id, 10);
-
   const foundJoke = jokes.findIndex((j) => j.id === previousId);
-
   if (!foundJoke) {
     return res.status(404).json({
       error: `No joke found on id ${previousId}`
     })
   };
-
   const updateJoke = {
     id: previousId,
     jokeText: req.body.text,
     jokeType: req.body.type,
   }
-
   jokes[foundJoke] = updateJoke;
+  // console.log(jokes[foundJoke]);
+  console.log(`PUT joke ${JSON.stringify(jokes[foundJoke])}`);
   res.json(updateJoke)
-
 })
 
 
 //6. PATCH a joke
+
+app.patch("/jokes/:id", (req, res) => {
+  const previousId = parseInt(req.params.id, 10);
+  const jokeIndex = jokes.findIndex((j) => j.id === previousId);
+  if (jokeIndex === -1 ) {
+    return res.status(404).json({
+      error: `No joke found on id ${previousId}`
+    });
+  };
+  const patchJoke = {
+    id: previousId,
+    jokeText: req.body.text || jokes[jokeIndex].jokeText,
+    jokeType: req.body.type || jokes[jokeIndex].jokeType,
+  }
+  jokes[jokeIndex] = patchJoke;
+  // console.log(jokes[jokeIndex]);
+
+  console.log(`PATCH joke ${JSON.stringify(jokes[jokeIndex])}`);
+  res.json(patchJoke);
+});
+
+
 
 //7. DELETE Specific joke
 
