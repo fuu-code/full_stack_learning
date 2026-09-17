@@ -17,8 +17,8 @@ app.get("/random", (req, res) => {
 //2. GET a specific joke
 
 app.get("/jokes/:id", (req, res) => {
-  const id = parseInt(req.params.id);
-  const foundJoke = jokes.find((joke) => joke.id === id);
+  const id = parseInt(req.params.id, 10);
+  const foundJoke = jokes.find((j) => j.id === id);
   if (!foundJoke) {
     return res.status(404).json({
     error: `No joke found for id '${id}'.`
@@ -43,7 +43,49 @@ app.get("/filter", (req, res) => {
 
 //4. POST a new joke
 
+app.post("/jokes", (req, res) => {
+  if (!req.body.text || !req.body.type) {
+    return res.status(400).json({
+      error: "Fill all the required information 'text' and 'type'."
+    });
+  };
+
+  const newJoke = {
+    id: jokes.length + 1, 
+    jokeText: req.body.text,
+    jokeType: req.body.type,
+  };
+
+  jokes.push(newJoke);
+  console.log(jokes.slice(-1));
+  res.json(newJoke);
+});
+
+
 //5. PUT a joke
+
+app.put("/jokes/:id", (req, res) => {
+  const previousId = parseInt(req.params.id, 10);
+
+  const foundJoke = jokes.findIndex((j) => j.id === previousId);
+
+  if (!foundJoke) {
+    return res.status(404).json({
+      error: `No joke found on id ${previousId}`
+    })
+  };
+
+  const updateJoke = {
+    id: previousId,
+    jokeText: req.body.text,
+    jokeType: req.body.type,
+  }
+
+  jokes[foundJoke] = updateJoke;
+  res.json(updateJoke)
+
+})
+
 
 //6. PATCH a joke
 
@@ -54,6 +96,7 @@ app.get("/filter", (req, res) => {
 app.listen(port, () => {
   console.log(`Successfully started server on port ${port}.`);
 });
+
 
 var jokes = [
   {
