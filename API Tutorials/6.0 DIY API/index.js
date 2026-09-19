@@ -61,13 +61,12 @@ app.post("/jokes", (req, res) => {
   res.json(newJoke);
 });
 
-
 //5. PUT a joke
 
 app.put("/jokes/:id", (req, res) => {
   const previousId = parseInt(req.params.id, 10);
-  const foundJoke = jokes.findIndex((j) => j.id === previousId);
-  if (!foundJoke) {
+  const jokeIndex = jokes.findIndex((j) => j.id === previousId);
+  if (!jokeIndex) {
     return res.status(404).json({
       error: `No joke found on id ${previousId}`
     })
@@ -82,7 +81,6 @@ app.put("/jokes/:id", (req, res) => {
   console.log(`PUT joke ${JSON.stringify(jokes[foundJoke])}`);
   res.json(updateJoke)
 })
-
 
 //6. PATCH a joke
 
@@ -106,11 +104,38 @@ app.patch("/jokes/:id", (req, res) => {
   res.json(patchJoke);
 });
 
-
-
 //7. DELETE Specific joke
 
+app.delete("/jokes/:id", (req, res) => {
+  const selectedId = parseInt(req.params.id, 10);
+  const jokeIndex = jokes.findIndex((j) => j.id === selectedId);
+  if (jokeIndex === -1) {
+    return res.status(404).json({
+      error: `No joke found on ${selectedId}`
+    })
+  };
+  const deletedJoke = jokes.splice(foundJoke, 1);
+  res.json({ message: "Joke deleted", joke: deletedJoke[0]})
+});
+
+
 //8. DELETE All jokes
+
+app.delete("/all", (req, res) => {
+  const userKey = req.query.key;
+  if (userKey === masterKey) {
+    jokes = [];
+    res.status(200).send("All jokes deleted")
+    // jokes.splice(0, jokes.length);
+    // res.json({
+    // message: "All Jokes Deleted"
+  } else{ 
+    res
+      .status(404)
+      .json({ error: "You are not authorized to perform this action"});
+  };
+});
+
 
 app.listen(port, () => {
   console.log(`Successfully started server on port ${port}.`);
