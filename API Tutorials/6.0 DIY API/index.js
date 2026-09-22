@@ -114,7 +114,7 @@ app.delete("/jokes/:id", (req, res) => {
       error: `No joke found on ${selectedId}`
     })
   };
-  const deletedJoke = jokes.splice(foundJoke, 1);
+  const deletedJoke = jokes.splice(jokeIndex, 1);
   res.json({ message: "Joke deleted", joke: deletedJoke[0]})
 });
 

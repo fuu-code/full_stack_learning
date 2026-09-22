@@ -58,7 +58,7 @@ app.get("/posts/:id", (req, res) => {
 });
 
 //CHALLENGE 3: POST a new post
-app.post("/new", (req, res) => {
+app.post("/posts", (req, res) => {
   const existingIds = posts.map((p) => p.id)
   const maxId = posts.length > 0 ? Math.max(...existingIds) : 0;
   const newPost = {
@@ -75,7 +75,40 @@ app.post("/new", (req, res) => {
 
 //CHALLENGE 4: PATCH a post when you just want to update one parameter
 
+app.patch("/posts/:id", (req, res) => {
+  const existingId = parseInt(req.params.id, 10);
+  const postsIndex = posts.findIndex((p) => p.id === existingId);
+  if (postsIndex === -1) {
+    return res.status(404).json({
+      error: "No post found",
+    });
+  };
+  const postUpdate = {
+    id: existingId,
+    title: req.body.title || posts[postsIndex].title,
+    content: req.body.content || posts[postsIndex].content,
+    author: req.body.author || posts[postsIndex].author,
+    date: posts[postsIndex].date,
+  }
+  posts[postsIndex] = postUpdate;
+  res.status(200).json(postUpdate);
+});
+
+
 //CHALLENGE 5: DELETE a specific post by providing the post id.
+
+app.delete("/posts/:id", (req, res) => {
+  const existingId = parseInt(req.params.id, 10);
+  const postsIndex = posts.findIndex((p) => p.id === existingId);
+  if (postsIndex === -1) {
+    return res.status(404).json({
+      error: "No post found"
+    });
+  };
+  posts.splice(postsIndex, 1);
+  res.send(200).json({ message: "Post Deleted Successfully "});
+});
+
 
 app.listen(port, () => {
   console.log(`API is running at http://localhost:${port}`);
