@@ -1,0 +1,108 @@
+DOCUMENTATION DB = https://www.w3schools.com/sql/sql_select.asp
+
+PRACTICE DATABASE = https://sqliteonline.com/
+
+
+
+// Creating DB
+CREATE DATABASE database_name;
+
+// Creating  Table
+    CREATE TABLE table_name (
+      column1 datatype constraint,
+      column2 datatype constraint,
+      column3 datatype constraint,
+      ....
+    );
+
+// Example // 
+    CREATE TABLE products (
+      id INT not NULL,
+      name STRING,
+      price MONEY,
+      PRIMARY KEY (id)
+      )
+
+    CREATE TABLE customers (
+      id INT NOT NULL,
+      Fname STRING,
+      Lname STRING,
+      address STRING,
+      PRIMARY KEY (id)
+      )
+
+// Adding data into table 
+INSERT INTO table_name (column1, column2, column3)
+VALUES (value_col_1, value_col_2, value_col_3)
+
+
+// Reading Table
+SELECT * FROM table_name;
+
+SELECT column1, column2 FROM table_name;
+
+SELECT * FROM table_name WHERE column_name(id) = 1;
+
+
+// Updating Table
+UPDATE table_name 
+SET column_name = 0.80
+WHERE id = 2;
+ 
+
+// Adding new column
+ALTER TABLE products
+ADD stock INT
+
+
+
+// Deleting Table
+DELETE FROM table_name
+WHERE columm_name = value
+
+DELETE FROM table_name
+WHERE id = 2
+
+
+
+
+// Creating Reference Table
+CREATE table orders (
+  id INT NOT NULL,
+  order_number INT,
+  customer_id INT,
+  product_id INT,
+  PRIMARY key (id),
+  FOREIGN KEY (customer_id) REFERENCES customers(id),
+  FOREIGN KEY (product_id) REFERENCES products(id)
+  )
+
+// Creating Customer Table
+CREATE table customers (
+  id INT NOT NULL,
+  first_name STRING,
+  last_name STRING,
+  address STRING
+  )
+
+
+// Joining another table to a table
+SELECT column_name(s)
+FROM table1
+INNER JOIN table2
+ON table1.column_name = table2.column_name;
+
+
+SELECT orders.order_number, customers.first_name, customers.last_name, customer.address,
+FROM orders
+INNER JOIN customers
+ON orders.customer_id = customers.id;
+
+
+select orders.order_number, products.name, products.price, products.stock
+from orders
+inner join products on orders.product_id = products.id
+
+
+
+
