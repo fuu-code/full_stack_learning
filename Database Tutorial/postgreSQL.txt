@@ -148,3 +148,7 @@ SELECT country
 FROM world_food
 WHERE country LIKE '%' || 'a';
 
+
+// Restart the table database 
+
+TRUNCATE TABLE visited_countries RESTART IDENTITY;
