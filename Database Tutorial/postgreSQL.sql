@@ -1,13 +1,14 @@
-DOCUMENTATION DB = https://www.w3schools.com/sql/sql_select.asp
 
-PRACTICE DATABASE = https://sqliteonline.com/
+-- DOCUMENTATION DB = https://www.w3schools.com/sql/sql_select.asp
+
+-- PRACTICE DATABASE = https://sqliteonline.com/
 
 
 
-// Creating DB
+-- Creating DB
 CREATE DATABASE database_name;
 
-// Creating  Table
+-- Creating  Table
     CREATE TABLE table_name (
       column1 datatype constraint,
       column2 datatype constraint,
@@ -15,7 +16,7 @@ CREATE DATABASE database_name;
       ....
     );
 
-// Example // 
+-- Example // 
     CREATE TABLE products (
       id INT not NULL,
       name STRING,
@@ -31,12 +32,12 @@ CREATE DATABASE database_name;
       PRIMARY KEY (id)
       )
 
-// Adding data into table 
+-- Adding data into table 
 INSERT INTO table_name (column1, column2, column3)
 VALUES (value_col_1, value_col_2, value_col_3)
 
 
-// Reading Table
+-- Reading Table
 SELECT * FROM table_name;
 
 SELECT column1, column2 FROM table_name;
@@ -44,19 +45,19 @@ SELECT column1, column2 FROM table_name;
 SELECT * FROM table_name WHERE column_name(id) = 1;
 
 
-// Updating Table
+-- Updating Table
 UPDATE table_name 
 SET column_name = 0.80
 WHERE id = 2;
  
 
-// Adding new column
+-- Adding new column
 ALTER TABLE products
 ADD stock INT
 
 
 
-// Deleting Table
+-- Deleting Table
 DELETE FROM table_name
 WHERE columm_name = value
 
@@ -66,7 +67,7 @@ WHERE id = 2
 
 
 
-// Creating Reference Table
+-- Creating Reference Table
 CREATE table orders (
   id INT NOT NULL,
   order_number INT,
@@ -77,7 +78,7 @@ CREATE table orders (
   FOREIGN KEY (product_id) REFERENCES products(id)
   )
 
-// Creating Customer Table
+-- Creating Customer Table
 CREATE table customers (
   id INT NOT NULL,
   first_name STRING,
@@ -86,7 +87,7 @@ CREATE table customers (
   )
 
 
-// Joining another table to a table
+-- Joining another table to a table
 SELECT column_name(s)
 FROM table1
 INNER JOIN table2
@@ -105,7 +106,7 @@ inner join products on orders.product_id = products.id
 
 
 
-// (SELECT) Selection specific column 
+-- (SELECT) Selection specific column 
 
 SELECT * FROM table_name          (select all)
 SELECT col_name FROM table_name   (select specific columm_name)
@@ -115,7 +116,7 @@ FROM table_name;
 
 
 
-// (WHERE) Where specific row or data 
+-- (WHERE) Where specific row or data 
 
 SELECT col_name 
 FROM table_name
@@ -150,5 +151,17 @@ WHERE country LIKE '%' || 'a';
 
 
 -- Restart the table database 
-
 TRUNCATE TABLE visited_countries RESTART IDENTITY;
+
+
+-- JOIN multiple tables in to MANY to ONE
+
+SELECT *
+FROM table_1
+JOIN table_2
+ON table_1.id = table_2.id
+
+SELECT *
+FROM homework_submission
+JOIN student
+ON student.id = homework_submission.student_id
