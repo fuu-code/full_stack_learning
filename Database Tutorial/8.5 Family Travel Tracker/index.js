@@ -5,6 +5,9 @@ import pg from "pg";
 const app = express();
 const port = 3000;
 
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public"));
+
 const db = new pg.Client({
   user: "postgres",
   host: "localhost",
@@ -13,9 +16,6 @@ const db = new pg.Client({
   port: 5432,
 });
 db.connect();
-
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
 
 let familyUserId = 1;
 
@@ -41,7 +41,6 @@ async function checkVisisted() {
   return countries;
 }
 
-
 app.get("/", async (req, res) => {
   const countries = await checkVisisted();
   const currentFamily = await familyUser();
@@ -55,16 +54,16 @@ app.get("/", async (req, res) => {
 
 app.post("/add", async (req, res) => {
   const input = req.body["country"];
-  const currentFamily = await familyUser()
+  const currentId = await familyUser();
 
   try {
     const result = await db.query(
       "SELECT country_code FROM countries WHERE LOWER(country_name) LIKE '%' || $1 || '%';",
       [input.toLowerCase()]
     );
-
     const data = result.rows[0];
     const countryCode = data.country_code;
+
     try {
       await db.query(
         "INSERT INTO visited_countries_family (country_code, user_id) VALUES ($1, $2)",
@@ -91,18 +90,20 @@ app.post("/user", async (req, res) => {
 app.post("/new", async (req, res) => {
   const new_name = req.body.name;
   const color = req.body.color;
-
+  try {
   const result = await db.query(
     "INSERT INTO users (name, color) VALUES($1, $2) RETURNING *;", 
     [new_name, color]
     );
-  
   const id = result.rows[0].id;
   familyUserId = id;
-
   res.redirect("/")
-  //Hint: The RETURNING keyword can return the data that was inserted.
-  //https://www.postgresql.org/docs/current/dml-returning.html
+
+  } catch (err) {
+    console.error("Error creating user:", err.stack);
+    res.redirect("/");
+  };
+
 });
 
 app.listen(port, () => {
