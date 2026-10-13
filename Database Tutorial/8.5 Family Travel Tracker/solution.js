@@ -9,7 +9,7 @@ const db = new pg.Client({
   user: "postgres",
   host: "localhost",
   database: "world",
-  password: "2001",
+  password: "123456",
   port: 5432,
 });
 db.connect();
@@ -26,7 +26,7 @@ let users = [
 
 async function checkVisisted() {
   const result = await db.query(
-    "SELECT country_code FROM visited_countries_family JOIN users ON users.id = user_id WHERE user_id = $1; ",
+    "SELECT country_code FROM visited_countries JOIN users ON users.id = user_id WHERE user_id = $1; ",
     [currentUserId]
   );
   let countries = [];
@@ -66,7 +66,7 @@ app.post("/add", async (req, res) => {
     const countryCode = data.country_code;
     try {
       await db.query(
-        "INSERT INTO visited_countries_family (country_code, user_id) VALUES ($1, $2)",
+        "INSERT INTO visited_countries (country_code, user_id) VALUES ($1, $2)",
         [countryCode, currentUserId]
       );
       res.redirect("/");
