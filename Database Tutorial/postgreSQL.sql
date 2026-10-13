@@ -165,3 +165,43 @@ SELECT *
 FROM homework_submission
 JOIN student
 ON student.id = homework_submission.student_id
+
+
+-- ALTER table adding a constainst like UNIQUE so there is no duplicate
+
+ALTER TABLE visited_countries_family
+  ADD UNIQUE(user_id, country_code)
+
+
+-- DROP table 
+
+DROP TABLE table_name
+
+DROP TABLE IF EXISTS table_name, table2_name
+
+
+-- UPDATE DATA updating information to an existing data in a table
+
+UPDATE table_name
+  SET column_name = value,
+  WHERE condition
+
+UPDATE users 
+  SET name = 'Billy Honor'
+  WHERE id = 1
+
+-- ORDER by sorting data
+
+SELECT *
+FROM users
+ORDER BY id ASC; 
+
+SELECT *
+FROM users
+ORDER BY name DESC; 
+
+-- DELETE DATA from a table
+
+DELETE FROM visited_countries_family
+WHERE id = 5 
+
