@@ -49,13 +49,14 @@ app.get("/", async (req, res) => {
     countries: countries,
     total: countries.length,
     users: users,
+    currentId: currentFamily.id,
     color: currentFamily.color,
   });
 });
 
 app.post("/add", async (req, res) => {
-  const input = req.body["country"];
-  const currentFamily = await familyUser()
+  const input = req.body.country;
+  const familyUserId = req.body.userId;
 
   try {
     const result = await db.query(
