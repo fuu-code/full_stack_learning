@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Page</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+ 
+  <div class="form-grid-container">
+
+    <div class="label-col">
+      <label>Book Title: </label> 
+      <label>Your Name: </label>
+      <label>Book Cover URL: </label>
+      <label>Comment: </label>
+    </div>
+
+    <form action="/add" method="POST">
+      <div class="input-col">
+          <input type="text" name="bookTitle" autocomplete="off">
+          <input type="text" name="userName" autocomplete="off">
+          <input type="text" name="coverPageUrl" autocomplete="off">
+          <input type="text" name="comment" autocomplete="off">
+          <button type="submit">Add Book</button> 
+      </div>
+    </form> 
+  </div>
+
+
+<% info.forEach((data) => { %>
+<div class="card-container">
+  <div class="book-card">
+    <div class="book-cover"><img src="<%= data.book_cover %>" width="110px"></div>
+    <div class="card-content">
+      <div class="content-header">
+        <div class="book-title"> <%= data.book_title %> </div>
+        <form action="/edit" method="POST">
+          <input type="hidden" name="bookId" value="<%= data.id %>">
+          <button class="edit-btn" type="submit">edit</button>
+        </form>
+      </div>
+      <div class="comment-box"> <%= data.comment %> </div>
+      <div class="user-name"> <%= data.name %> </div>
+    </div>
+  </div>
+</div>
+<% }); %>
+
+
+</body>
+
+
+</html>

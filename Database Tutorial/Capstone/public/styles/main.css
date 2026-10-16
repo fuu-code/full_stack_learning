@@ -1,0 +1,117 @@
+
+
+body {
+  background-color: blanchedalmond;
+}
+
+.form-grid-container {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.label-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-weight: bold;
+}
+
+.input-col {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  margin-top: 18%;
+}
+
+
+
+
+
+
+/* =============== POST CSS ================ */
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between each card */
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 5%;
+}
+
+/* Individual Card Styling */
+.book-card {
+  display: flex;
+  background-color: #c9b6a0;
+  border: 0px solid #e0d7d7;
+  padding: 15px;
+  gap: 15px;
+  border-radius: 10px;
+}
+
+/* Left Column: Book Cover Box */
+.book-cover {
+  width: 100px;
+  height: 160px;
+  margin-top: 1%;
+  margin-left: 10px;
+  flex-shrink: 0; /* Prevents the box from shrinking */
+}
+
+/* Right Column Layout */
+.card-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 10px; /* Vertical gap between title, comment, and user name */
+}
+
+/* Header Row (Title + Button) */
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.book-title {
+  padding: 4px 12px;
+  font-size: 20px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.edit-btn {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  padding: 4px 12px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.edit-btn:hover {
+  background-color: #ffffff;
+  color: #1a1a1a;
+}
+
+/* Middle Row: Comment Box */
+.comment-box {
+  padding: 15px;
+  flex-grow: 1; /* Makes the box fill available vertical space */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  min-height: 60px;
+  text-align: justify;
+}
+
+/* Bottom Row: User Name */
+.user-name {
+  padding: 4px 12px;
+  font-size: 14px;
+  text-align: left;
+}
