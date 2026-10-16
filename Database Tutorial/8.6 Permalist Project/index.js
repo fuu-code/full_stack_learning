@@ -56,7 +56,6 @@ app.post("/add", async (req, res) => {
   res.redirect("/");
 });
 
-
 app.post("/edit", async (req, res) => {
   const currentID = req.body.updatedItemId;
   const newTitle = req.body.updatedItemTitle; 
@@ -72,7 +71,6 @@ app.post("/edit", async (req, res) => {
   };
   res.redirect("/")
 });
-
 
 app.post("/delete", async (req, res) => {
   const deleteId = req.body.deleteItemId;
