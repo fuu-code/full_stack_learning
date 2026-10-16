@@ -205,3 +205,5 @@ ORDER BY name DESC;
 DELETE FROM visited_countries_family
 WHERE id = 5 
 
+-- modify the table
+ALTER TABLE table_name RENAME COLUMN old_column_name TO new_column_name;
