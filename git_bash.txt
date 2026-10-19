@@ -95,7 +95,7 @@ git reset --hard <commit-hash>
 git revert <commit-hash>        # go back to previous version without loosing the track records or commit
 
 -----------
-
-
+# renaming a folder
+git mv old-folder-name new-folder-name
 
 
