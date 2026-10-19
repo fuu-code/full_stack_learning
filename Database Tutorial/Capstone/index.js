@@ -49,7 +49,24 @@ app.post("/add", async (req, res) => {
 
 // WORK IN PROGRESS FOR UPDATE
 app.post("/edit", async (req, res) => {
+  // 1. Destructure the fields sent from the form's name attributes
+  const { bookId, updatedTitle, updatedComment, updatedName } = req.body;
 
+  try {
+    // 2. Run the SQL UPDATE query safely using parameters ($1, $2, etc.)
+    await db.query(
+      "UPDATE books SET book_title = $1, comment = $2, name = $3 WHERE id = $4",
+      [updatedTitle, updatedComment, updatedName, bookId]
+    );
+
+    // 3. Redirect back to the main page to show the updated list (with early return)
+    return res.redirect("/");
+    
+  } catch (err) {
+    // 4. Log the error to stderr and safely redirect home
+    console.error("Error updating book record:", err);
+    return res.redirect("/");
+  }
 });
 
 app.listen(port, () => {

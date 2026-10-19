@@ -32,24 +32,79 @@
 <% info.forEach((data) => { %>
 <div class="card-container">
   <div class="book-card">
-    <div class="book-cover"><img src="<%= data.book_cover %>" width="110px"></div>
+    <div class="book-cover">
+      <img src="<%= data.book_cover %>" width="110px">
+    </div>
+    
     <div class="card-content">
-      <div class="content-header">
-        <div class="book-title"> <%= data.book_title %> </div>
-        <form action="/edit" method="POST">
-          <input type="hidden" name="bookId" value="<%= data.id %>">
-          <button class="edit-btn" type="submit">edit</button>
-        </form>
-      </div>
-      <div class="comment-box"> <%= data.comment %> </div>
-      <div class="user-name"> <%= data.name %> </div>
+      <!-- Wrap the card in a form pointing to your edit route -->
+      <form action="/edit" method="POST">
+        <input type="hidden" name="bookId" value="<%= data.id %>">
+
+        <!-- TITLE SECTION -->
+        <div class="content-header">
+          <!-- Display View -->
+          <div class="book-title display-mode"><%= data.book_title %></div>
+          <!-- Edit View (Hidden by default) -->
+          <input type="text" name="updatedTitle" value="<%= data.book_title %>" class="edit-mode" style="display: none;" required>
+        </div>
+
+        <!-- COMMENT SECTION -->
+        <div class="comment-box">
+          <!-- Display View -->
+          <div class="display-mode"><%= data.comment %></div>
+          <!-- Edit View (Hidden by default) -->
+          <textarea name="updatedComment" class="edit-mode" style="display: none;"><%= data.comment %></textarea>
+        </div>
+
+        <!-- USER NAME SECTION -->
+        <div class="user-name">
+          <!-- Display View -->
+          <div class="display-mode"><%= data.name %></div>
+          <!-- Edit View (Hidden by default) -->
+          <input type="text" name="updatedName" value="<%= data.name %>" class="edit-mode" style="display: none;" required>
+        </div>
+
+        <!-- BUTTONS -->
+        <div class="button-group" style="margin-top: 10px;">
+          <!-- Clicking this triggers the JS function instead of submitting -->
+          <button type="button" class="edit-btn" onclick="toggleEdit(this)">Edit</button>
+          <!-- Save Button (Hidden by default, submits the form) -->
+          <button type="submit" class="save-btn edit-mode" style="display: none;">Save Changes</button>
+        </div>
+
+      </form>
     </div>
   </div>
 </div>
 <% }); %>
 
+<script>
+  function toggleEdit(button) {
+    // Find the closest card container for this specific book
+    const cardContainer = button.closest('.card-container');
+    
+    // Grab all display elements and edit elements inside THIS card only
+    const displayElements = cardContainer.querySelectorAll('.display-mode');
+    const editElements = cardContainer.querySelectorAll('.edit-mode');
+    
+    // Toggle their visibility
+    displayElements.forEach(el => {
+      el.style.display = el.style.display === 'none' ? 'block' : 'none';
+    });
+    
+    editElements.forEach(el => {
+      el.style.display = el.style.display === 'none' ? 'block' : 'none';
+    });
+    
+    // Change the button text from "Edit" to "Cancel" (optional UI touch)
+    if (button.textContent === 'Edit') {
+      button.textContent = 'Cancel';
+    } else {
+      button.textContent = 'Edit';
+    }
+  }
+</script>
 
 </body>
-
-
 </html>
