@@ -1,0 +1,12 @@
+1. Open your terminal in VS Code.
+  Run the Vite setup command:
+  Bash:
+
+  > npm create vite@latest client -- --template react
+
+2 Navigate into your new folder, install dependencies, and start the dev server:
+
+Bash: 
+  > cd client / folder_name
+  npm install
+  npm run dev
