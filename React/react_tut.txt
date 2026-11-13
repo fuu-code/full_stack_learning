@@ -2,7 +2,7 @@
   Run the Vite setup command:
   Bash:
 
-  > npm create vite@latest client -- --template react
+  > npm create vite@latest folder_name -- --template react
 
 2 Navigate into your new folder, install dependencies, and start the dev server:
 

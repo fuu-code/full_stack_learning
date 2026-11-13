@@ -28,3 +28,21 @@ ReactDOM.render(
 </div>
 , document.getElementById("root")
 )
+
+
+// Javascript expression to React
+
+const fName = "Ya";
+const lName = "Yo"
+const num = 7;
+
+ReactDOM.render(
+<div>
+  <h1>Hello {fName + " " + lName} | {fName} {lName} | {`${fName} ${lName}`}!</h1>
+  <p>Your lucky number is {num}!</p>
+  <p>This number is random {Math.floor(Math.random() * 10)}!</p>
+
+</div>
+, document.getElementById("assign")
+)
+
