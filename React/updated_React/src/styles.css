@@ -1,0 +1,22 @@
+body {
+  background-color: gray;
+}
+
+hr {
+  border: none;
+  height: 5px;
+  background-color: black
+}
+
+.heading{
+  color: red;
+}
+
+#style ul {
+  color: blue;
+}
+
+#style img {
+  height: 100px;
+  width: 100px;
+}

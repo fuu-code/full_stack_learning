@@ -19,16 +19,15 @@ ReactDOM.createRoot(document.getElementById("intro")).render(
   <h1>Hello World!</h1>
   <h2>MY FAVOURITE FOOD</h2>
   <ul>
-    <li>Bacon</li>
-    <li>Jamon</li>
-    <li>Noodles</li>
+    <li>Sisig</li>
+    <li>Chicken</li>
+    <li>Chopsuey</li>
   </ul>
 </div>
 );
 
 
 // Javascript expression to React
-
 const fName = "Ya";
 const lName = "Yo"
 const num = 7;
@@ -45,11 +44,80 @@ ReactDOM.createRoot(document.getElementById("expression")).render(
 const currentYear = new Date().getFullYear();
 const name = "CoderCraze"
 
-ReactDOM.createRoot(document.getElementById('code_chall')).render(
+ReactDOM.createRoot(document.getElementById('code-chall')).render(
   <div>
-    <h1>HELLO WORLD</h1>
+    <h1 contentEditable="true">HELLO WORLD</h1>
     <p>Created by {name}</p>
     <p>Copyright {currentYear}</p>
   </div>
 );
+
+// https://www.w3schools.com/tags/ref_standardattributes.asp
+// add html attribute inside JSX
+// Class-based style 
+const chicken = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6isxcnfsbp_tTWrh-SL37yJlFCYmfowOI8gPx3RGCzA&s=10"
+const chopsuey = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ59EciSbqBP-XBYRRIrn1cGtWStJtYXhKsxAAI_yRSHQ&s=10"
+
+ReactDOM.createRoot(document.getElementById("style")).render(
+  <div>
+  <h1 className="heading">Hello World!</h1>
+  <h2>MY FAVOURITE FOOD</h2>
+  <ul>
+    <li contentEditable="true">Sisig</li>
+    <li contentEditable="true">Chicken</li>
+    <li contentEditable="true">Chopsuey</li>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8OE72V9V_vt4i3-F9UvsRXErvNZSPHsnlXQeK_mW4bw&s=10" alt="pork chops fried"></img>
+    <img src={chicken} alt="chicken wings"/>
+    <img src={chopsuey} alt="veggies fried"></img>
+  </ul>
+</div>
+);
+
+
+// Inline-based Styling in JSX
+// https://www.w3schools.com/cssref/index.php
+const customStyle ={
+  color: "brown",
+  fontSize: "30px",
+  border: "1px solid black",
+  width: "200px"
+}
+customStyle.color = "green"
+
+ReactDOM.createRoot(document.getElementById("inline-style")).render(
+  <div>
+    <h1 style={{color: "blue"}}>Hello World</h1>
+    <h1 style={customStyle}>Hello World</h1>
+  </div>
+)
+
+
+// Challenge updating Heading based on time
+
+let timeNow = new Date().getHours();
+// timeNow = 10
+
+let hour = ""
+const colorHour = {
+  color: ""
+}
+
+if (timeNow < 12) {
+  hour = "Good Morning",
+  colorHour.color = "red"
+} else if (timeNow < 18) {
+  hour = "Good Afternoon",
+  colorHour.color = "green"
+} else {
+  hour = "Good Evening",
+  colorHour.color = "blue"
+}
+
+
+ReactDOM.createRoot(document.getElementById("time-change")).render(
+  <div>
+    <p>This is a code challenge where the H1 change based on the hour</p>
+    <h1 style={colorHour}> {hour}</h1>
+  </div>
+)
 
